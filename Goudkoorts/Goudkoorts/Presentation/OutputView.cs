@@ -22,6 +22,7 @@ namespace Goudkoorts
             Console.WriteLine("|  ╚ ╔ ╗ ╝      |     Switches     |");
             Console.WriteLine("|   Numbers     |      Boat        |");
             Console.WriteLine("|     ~         |   ReangentField  |");
+            Console.WriteLine("|     K         |      Wharf       |");
             Console.WriteLine(" __________________________________ ");
         }
     }
