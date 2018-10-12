@@ -46,6 +46,7 @@
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="Controller\Parser.cs" />
     <Compile Include="Model\Cart.cs" />
+    <Compile Include="Model\EmptyField.cs" />
     <Compile Include="Model\Field.cs" />
     <Compile Include="Model\ReangentField.cs" />
     <Compile Include="Model\RegularField.cs" />

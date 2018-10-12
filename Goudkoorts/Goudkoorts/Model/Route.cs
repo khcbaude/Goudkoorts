@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class Route
+    public class Route
     {
+
     }
 }

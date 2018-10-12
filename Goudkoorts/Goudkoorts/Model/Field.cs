@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class Field
+    public abstract class Field
     {
+        public Field Next { get; set; }
+
+        public abstract void PutEntityOnThisField(Route route);
     }
 }

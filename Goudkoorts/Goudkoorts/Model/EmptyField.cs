@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class ReangentField : Field
+    class EmptyField : Field
     {
         public override void PutEntityOnThisField(Route route)
         {
-            throw new NotImplementedException();
+            return;
         }
     }
 }

@@ -8,5 +8,9 @@ namespace Goudkoorts.Model
 {
     class RegularField : Field
     {
+        public override void PutEntityOnThisField(Route route)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
