@@ -67,6 +67,7 @@ namespace Goudkoorts.Process
                         case '█':
                             fields[i, j] = new Model.Warehouse();
                             fields[i, j].Symbol = '█';
+                            Route.Warehouses.Add(fields[i, j]);
                             break;
                         case '◄':
                             fields[i, j] = new Model.RegularField();
@@ -150,7 +151,7 @@ namespace Goudkoorts.Process
                 characters = list[i].ToArray();
                 for (int j = 0; j < characters.Length; j++)
                 {
-                    print.Add(fields[i,j]);
+                    print.Add(fields[i, j]);
                 }
             }
             return print;

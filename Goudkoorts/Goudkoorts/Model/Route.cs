@@ -8,7 +8,7 @@ namespace Goudkoorts.Model
 {
     public class Route
     {
-        public List<Warehouse> Warehouses { get; set; }
+        public List<Field> Warehouses { get; set; }
 
         public List<Entity> Entities { get; set; }
     }
