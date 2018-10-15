@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class ReangentField : Field
+    public class ReangentField : Field
     {
+
+
         public override void PutEntityOnThisField(Route route)
         {
             throw new NotImplementedException();

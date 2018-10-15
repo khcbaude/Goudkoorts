@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class EmptyField : Field
+    public class EmptyField : Field
     {
+        
+
         public override void PutEntityOnThisField(Route route)
         {
             return;

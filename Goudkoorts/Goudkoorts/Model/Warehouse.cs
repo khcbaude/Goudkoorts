@@ -8,6 +8,15 @@ namespace Goudkoorts.Model
 {
     public class Warehouse : Field
     {
-        public override void PutEntityOnThisField(Route route){return;}
+        private Random randomGen;
+
+        public Warehouse()
+        {
+            randomGen = new Random();
+        }
+
+        
+
+        public override void PutEntityOnThisField(Route route) { return; }
     }
 }

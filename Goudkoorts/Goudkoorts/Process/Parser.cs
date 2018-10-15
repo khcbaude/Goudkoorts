@@ -156,5 +156,15 @@ namespace Goudkoorts.Process
             }
             return print;
         }
+
+        public void addCart()
+        {
+            List<Model.Field> field = this.BuildMaze();
+
+            while(field != null)
+            {
+
+            }
+        }
     }
 }
