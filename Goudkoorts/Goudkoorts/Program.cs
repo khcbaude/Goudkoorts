@@ -10,7 +10,7 @@ namespace Goudkoorts
     {
         static void Main(string[] args)
         {
-            Controller.MainController mainController = new Controller.MainController();
+            Process.MainController mainController = new Process.MainController();
         }
     }
 }

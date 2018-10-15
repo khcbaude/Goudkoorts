@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class Warehouse
+    class Warehouse : Field
     {
+        public override void PutEntityOnThisField(Route route){return;}
     }
 }

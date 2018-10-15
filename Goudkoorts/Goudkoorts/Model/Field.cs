@@ -8,6 +8,7 @@ namespace Goudkoorts.Model
 {
     public abstract class Field
     {
+        public char Symbol { get; set; }
         public Field Next { get; set; }
 
         public abstract void PutEntityOnThisField(Route route);

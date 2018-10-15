@@ -14,7 +14,7 @@ namespace Goudkoorts
             Console.WriteLine("|          Welcome to              |");
             Console.WriteLine("|           Goldfever              |");
             Console.WriteLine("|   Symbol      |     Meaning      |");
-            Console.WriteLine("|     -         |      Field       |");
+            Console.WriteLine("|     ═         |      Field       |");
             Console.WriteLine("|     O         |     EmptyCart    |");
             Console.WriteLine("|     0         |     FullCart     |");
             Console.WriteLine("|     █         |     Warehouse    |");
