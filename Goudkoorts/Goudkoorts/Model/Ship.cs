@@ -8,13 +8,25 @@ namespace Goudkoorts.Model
 {
     class Ship : Entity
     {
+        public override char Symbol
+        {
+            get
+            {
+                if (IsFull)
+                {
+                    return '▬';
+                }
+                else
+                {
+
+                    return Symbol;
+                }
+            }
+            set { }
+        }
         public Ship()
         {
             Symbol = '▭';
-            if (IsFull)
-            {
-                Symbol = '▬';
-            }
         }
     }
 }

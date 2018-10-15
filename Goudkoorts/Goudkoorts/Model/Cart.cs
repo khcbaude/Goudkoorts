@@ -8,13 +8,25 @@ namespace Goudkoorts.Model
 {
     public class Cart : Entity
     {
+        public override char Symbol
+        {
+            get
+            {
+                if (IsFull)
+                {
+                    return '▼';
+                }
+                else
+                {
+
+                    return Symbol;
+                }
+            }
+            set { }
+        }
         public Cart()
         {
             Symbol = 'V';
-            if (IsFull)
-            {
-                Symbol = '▼';
-            }
         }
     }
 }
