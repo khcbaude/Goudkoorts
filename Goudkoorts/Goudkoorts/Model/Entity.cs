@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    public class Warehouse : Field
+    public class Entity
     {
-        public override void PutEntityOnThisField(Route route){return;}
+        public bool IsFull { get; set; }
+
+        public char Symbol { get; set; }
+
     }
 }

@@ -8,6 +8,8 @@ namespace Goudkoorts.Process
 {
     class MainController
     {
+        public int Score { get; set; }
+
         private OutputView _outputView;
         private InputView _inputView;
         private Parser _parser;

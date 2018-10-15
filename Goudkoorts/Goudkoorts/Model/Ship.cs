@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class Ship
+    class Ship : Entity
     {
+        public Ship()
+        {
+            Symbol = '▭';
+            if (IsFull)
+            {
+                Symbol = '▬';
+            }
+        }
     }
 }

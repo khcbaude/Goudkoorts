@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class Cart
+    public class Cart : Entity
     {
+        public Cart()
+        {
+            Symbol = 'V';
+            if (IsFull)
+            {
+                Symbol = '▼';
+            }
+        }
     }
 }
