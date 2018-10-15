@@ -17,7 +17,8 @@ namespace Goudkoorts.Process
             _outputView.PrintWelcomeMessage();
             _inputView = new InputView();
             _parser = new Parser();
-            _parser.BuildMaze();
+            _outputView.Print = _parser.BuildMaze();
+            _outputView.PrintField();
             Console.ReadLine();
         }
     }

@@ -8,6 +8,7 @@ namespace Goudkoorts
 {
     class OutputView
     {
+        public List<Model.Field> Print { get; set; }
         public void PrintWelcomeMessage()
         {
             Console.WriteLine("____________________________________");
@@ -24,6 +25,23 @@ namespace Goudkoorts
             Console.WriteLine("|     ~         |   ReangentField  |");
             Console.WriteLine("|     K         |      Wharf       |");
             Console.WriteLine(" __________________________________ ");
+        }
+
+        public void PrintField()
+        {
+            Console.WriteLine();
+            Model.Field[] characters = Print.ToArray();
+            int count = 0;
+            for (int i = 0; i < Print.Count; i++)
+            {
+                Console.Write(characters[i].Symbol);
+                count++;
+                if (count == 14)
+                {
+                    Console.WriteLine();
+                    count = 0;
+                }
+            }
         }
     }
 }

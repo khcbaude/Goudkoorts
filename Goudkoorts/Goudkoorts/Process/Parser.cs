@@ -10,7 +10,7 @@ namespace Goudkoorts.Process
     class Parser
     {
         public Model.Route Route { get; set; }
-        public void BuildMaze()
+        public List<Model.Field> BuildMaze()
         {
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             _filePath = Directory.GetParent(_filePath).FullName;
@@ -24,13 +24,12 @@ namespace Goudkoorts.Process
             while ((line = tr.ReadLine()) != null)
             {
                 list.Add(line);
-                Console.WriteLine(line);
             }
 
             char[] characters = list[0].ToArray();
             Route = new Model.Route();
             Model.Field[,] fields = new Model.Field[list.Count, characters.Length];
-            for (int i =0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 characters = list[i].ToArray();
                 for (int j = 0; j < characters.Length; j++)
@@ -87,13 +86,74 @@ namespace Goudkoorts.Process
 
             for (int i = 0; i < list.Count; i++)
             {
+                characters = list[i].ToArray();
                 for (int j = 0; j < characters.Length; j++)
                 {
-                    Console.Write(fields[i,j].Symbol); 
+                    switch (characters[j])
+                    {
+                        case '←':
+                            if (j - 1 > -1)
+                            {
+                                fields[i, j].Next = fields[i, j - 1];
+                            }
+                            break;
+                        case '→':
+                            if (j + 1 < characters.Length)
+                            {
+                                fields[i, j].Next = fields[i, j + 1];
+                            }
+                            break;
+                        case '█':
+                            if (j + 1 < characters.Length)
+                            {
+                                fields[i, j].Next = fields[i, j + 1];
+                            }
+                            break;
+                        case '↑':
+                            if (i - 1 > -1)
+                            {
+                                fields[i, j].Next = fields[i - 1, j];
+                            }
+                            break;
+                        case '↓':
+                            if (i + 1 < list.Count)
+                            {
+                                fields[i, j].Next = fields[i + 1, j];
+                            }
+                            break;
+                        case '◄':
+                            if (j - 1 > -1)
+                            {
+                                fields[i, j].Next = fields[i, j - 1];
+                            }
+                            break;
+                        case '╠':
+                            if (j + 1 < characters.Length)
+                            {
+                                fields[i, j].Next = fields[i, j + 1];
+                            }
+                            break;
+                        case '╣':
+                            if (i - 1 > -1)
+                            {
+                                fields[i, j].Next = fields[i - 1, j];
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
-                Console.WriteLine();
             }
-
+            List<Model.Field> print = new List<Model.Field>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                characters = list[i].ToArray();
+                for (int j = 0; j < characters.Length; j++)
+                {
+                    print.Add(fields[i,j]);
+                }
+            }
+            return print;
         }
     }
 }
