@@ -8,7 +8,11 @@ namespace Goudkoorts.Model
 {
     public class SwitchField : Field
     {
-        
+
+        public SwitchField(char symbol)
+        {
+            Symbol = symbol;
+        }
 
         public override void PutEntityOnThisField(Route route)
         {

@@ -8,17 +8,26 @@ namespace Goudkoorts.Model
 {
     public class Route
     {
-        public List<Field> Warehouses = new List<Field>();
+        private Random _randomGen;
+        public List<Warehouse> Warehouses { get; set; }
 
         public List<Entity> Entities { get; set; }
 
-        public void addCart()
+        public Route()
+        {
+            Warehouses = new List<Warehouse>();
+            Entities = new List<Entity>();
+            _randomGen = new Random();
+        }
+
+        public void AddCart()
         {
             for(int i = 0; i < Warehouses.Count; i++)
             {
-                if (Warehouses[i].ReleaseCart()) {
-                    Cart c = new Cart();
-                    Warehouses[i].Next.Entity = c;
+                if (Warehouses[i].ReleaseCart(_randomGen)) {
+                    Cart cart = new Cart();
+                    Warehouses[i].Next.Entity = cart;
+                    Entities.Add(cart);
                 }
             }
         }

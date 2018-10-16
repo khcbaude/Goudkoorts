@@ -8,15 +8,26 @@ namespace Goudkoorts.Model
 {
     public class Warehouse : Field
     {
-        private Random randomGen;
 
-        public Warehouse()
+        public Warehouse(char symbol)
         {
-            randomGen = new Random();
+            Symbol = symbol;
         }
 
-        
-
         public override void PutEntityOnThisField(Route route) { return; }
+        public bool ReleaseCart(Random randomGen)
+        {
+            int number = randomGen.Next(1, 100);
+
+            if (number < 26)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

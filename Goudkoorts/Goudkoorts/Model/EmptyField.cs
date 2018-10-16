@@ -8,8 +8,10 @@ namespace Goudkoorts.Model
 {
     public class EmptyField : Field
     {
-        
-
+        public EmptyField(char symbol)
+        {
+            Symbol = symbol;
+        }
         public override void PutEntityOnThisField(Route route)
         {
             return;

@@ -19,13 +19,14 @@ namespace Goudkoorts.Model
                 else
                 {
 
-                    return Symbol;
+                    return _symbol;
                 }
             }
-            set { }
+            set { _symbol = value; }
         }
         public Cart()
         {
+            IsFull = true;
             Symbol = 'V';
         }
     }

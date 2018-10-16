@@ -19,10 +19,10 @@ namespace Goudkoorts.Model
                 else
                 {
 
-                    return Symbol;
+                    return _symbol;
                 }
             }
-            set { }
+            set { _symbol = value; }
         }
         public Ship()
         {

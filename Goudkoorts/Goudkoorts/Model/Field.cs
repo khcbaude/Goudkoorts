@@ -8,31 +8,31 @@ namespace Goudkoorts.Model
 {
     public abstract class Field
     {
-        private Random _randomGen;
-        public char Symbol { get; set; }
+        private char _symbol;
+        public char Symbol
+        {
+            get
+            {
+                if (Entity != null)
+                {
+                    return Entity.Symbol;
+                }
+                else
+                {
+                    return _symbol;
+                }
+            }
+            set { _symbol = value; }
+        }
         public Field Next { get; set; }
 
         public Entity Entity { get; set; }
 
         public Field()
         {
-            _randomGen = new Random();
         }
 
         public abstract void PutEntityOnThisField(Route route);
-
-        public bool ReleaseCart()
-        {
-            int number = _randomGen.Next(1, 100);
-
-            if (number < 26)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
     }
 }

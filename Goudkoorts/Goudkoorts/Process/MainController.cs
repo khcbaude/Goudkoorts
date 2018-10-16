@@ -11,9 +11,9 @@ namespace Goudkoorts.Process
     {
         public int Score { get; set; }
 
-        public static int Time { get; set; }
+        public int Time { get; set; }
 
-        private Timer t = new Timer(DisplayTimeEvent, null, 0, 1000);
+        private Thread mainThread;
 
         private OutputView _outputView;
         private InputView _inputView;
@@ -26,21 +26,23 @@ namespace Goudkoorts.Process
             _parser = new Parser();
             _outputView.Print = _parser.BuildMaze();
             _outputView.PrintField();
+            mainThread = new Thread(new ThreadStart(Run));
+            mainThread.Start();
             Console.ReadLine();
         }
 
-        
-        private static void DisplayTimeEvent(object o)
+        private void Run()
         {
-            Time = Time + 1;
-            Console.Clear();
-            OutputView ov = new OutputView();
-            Parser p = new Parser();
-            ov.Print = p.BuildMaze();
-            ov.PrintField();
-            Console.WriteLine(Time);
-            
+            while (true)
+            {
+                Thread.Sleep(1000);
+                Time++; 
+                Console.Clear();
+                _parser.Route.AddCart();
+                Console.WriteLine(Time);
+                _outputView.PrintField();
+            }
         }
-        
+
     }
 }

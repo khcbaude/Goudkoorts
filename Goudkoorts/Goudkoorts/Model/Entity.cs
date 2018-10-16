@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    abstract public class Entity
+    public abstract class Entity
     {
         public bool IsFull { get; set; }
 
-        abstract public char Symbol { get; set; }
+        protected char _symbol;
+        public abstract char Symbol { get; set; }
 
     }
 }

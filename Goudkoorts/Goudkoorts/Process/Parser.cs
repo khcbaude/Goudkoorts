@@ -37,49 +37,39 @@ namespace Goudkoorts.Process
                     switch (characters[j])
                     {
                         case '░':
-                            fields[i, j] = new Model.EmptyField();
-                            fields[i, j].Symbol = '░';
+                            fields[i, j] = new Model.EmptyField('░');
                             break;
                         case 'K':
-                            fields[i, j] = new Model.EmptyField();
-                            fields[i, j].Symbol = 'K';
+                            fields[i, j] = new Model.EmptyField('K');
                             break;
                         case ' ':
-                            fields[i, j] = new Model.EmptyField();
-                            fields[i, j].Symbol = ' ';
+                            fields[i, j] = new Model.EmptyField(' ');
                             break;
                         case '←':
-                            fields[i, j] = new Model.RegularField();
-                            fields[i, j].Symbol = '═';
+                            fields[i, j] = new Model.RegularField('═');
                             break;
                         case '→':
-                            fields[i, j] = new Model.RegularField();
-                            fields[i, j].Symbol = '═';
+                            fields[i, j] = new Model.RegularField('═');
                             break;
                         case '↑':
-                            fields[i, j] = new Model.RegularField();
-                            fields[i, j].Symbol = '║';
+                            fields[i, j] = new Model.RegularField('║');
                             break;
                         case '↓':
-                            fields[i, j] = new Model.RegularField();
-                            fields[i, j].Symbol = '║';
+                            fields[i, j] = new Model.RegularField('║');
                             break;
                         case '█':
-                            fields[i, j] = new Model.Warehouse();
-                            fields[i, j].Symbol = '█';
-                            Route.Warehouses.Add(fields[i, j]);
+                            Model.Warehouse warehouse= new Model.Warehouse('█');
+                            fields[i, j] = warehouse;
+                            Route.Warehouses.Add(warehouse);
                             break;
                         case '◄':
-                            fields[i, j] = new Model.RegularField();
-                            fields[i, j].Symbol = '~';
+                            fields[i, j] = new Model.RegularField('~');
                             break;
                         case '╠':
-                            fields[i, j] = new Model.SwitchField();
-                            fields[i, j].Symbol = '╠';
+                            fields[i, j] = new Model.SwitchField('╠');
                             break;
                         case '╣':
-                            fields[i, j] = new Model.SwitchField();
-                            fields[i, j].Symbol = '╣';
+                            fields[i, j] = new Model.SwitchField('╣');
                             break;
                     }
                 }
@@ -157,7 +147,7 @@ namespace Goudkoorts.Process
             return print;
         }
 
-        public void addCart()
+        public void AddCart()
         {
             List<Model.Field> field = this.BuildMaze();
 

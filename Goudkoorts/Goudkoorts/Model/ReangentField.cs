@@ -9,6 +9,10 @@ namespace Goudkoorts.Model
     public class ReangentField : Field
     {
 
+        public ReangentField(char symbol)
+        {
+            Symbol = symbol;
+        }
 
         public override void PutEntityOnThisField(Route route)
         {
