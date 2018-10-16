@@ -26,6 +26,8 @@ namespace Goudkoorts.Model
         }
         public Field Next { get; set; }
 
+        public Field Previous { get; set; }
+
         public Entity Entity { get; set; }
 
         public Field()

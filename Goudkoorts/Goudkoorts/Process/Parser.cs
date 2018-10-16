@@ -120,18 +120,21 @@ namespace Goudkoorts.Process
                             if (j - 1 > -1)
                             {
                                 fields[i, j].Next = fields[i, j - 1];
+                                fields[i, j].Previous = fields[i, j + 1];
                             }
                             break;
                         case '╠':
                             if (j + 1 < characters.Length)
                             {
                                 fields[i, j].Next = fields[i, j + 1];
+                                fields[i, j].Previous = fields[i - 1, j];
                             }
                             break;
                         case '╣':
                             if (i - 1 > -1)
                             {
                                 fields[i, j].Next = fields[i - 1, j];
+                                fields[i, j].Previous = fields[i, j - 1];
 
                             }
                             break;
