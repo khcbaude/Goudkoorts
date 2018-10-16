@@ -10,6 +10,8 @@ namespace Goudkoorts.Process
     class Parser
     {
         public Model.Route Route { get; set; }
+
+        
         public List<Model.Field> BuildMaze()
         {
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
@@ -19,7 +21,9 @@ namespace Goudkoorts.Process
             TextReader tr = new StreamReader(_filePath);
 
             string line;
+
             List<string> list = new List<string>();
+
 
             while ((line = tr.ReadLine()) != null)
             {
@@ -58,7 +62,7 @@ namespace Goudkoorts.Process
                             fields[i, j] = new Model.RegularField('║');
                             break;
                         case '█':
-                            Model.Warehouse warehouse= new Model.Warehouse('█');
+                            Model.Warehouse warehouse = new Model.Warehouse('█');
                             fields[i, j] = warehouse;
                             Route.Warehouses.Add(warehouse);
                             break;
@@ -128,6 +132,7 @@ namespace Goudkoorts.Process
                             if (i - 1 > -1)
                             {
                                 fields[i, j].Next = fields[i - 1, j];
+
                             }
                             break;
                         default:
@@ -146,15 +151,21 @@ namespace Goudkoorts.Process
             }
             return print;
         }
-
-        public void AddCart()
+        /*
+        public bool ChangeSwitchNext()
         {
-            List<Model.Field> field = this.BuildMaze();
-
-            while(field != null)
+            for (int i = 0; i < list.Count; i++)
             {
-
+                for (int j = 0; j < characters.Length; j++)
+                {
+                    if (characters[j].Equals('╣'))
+                    {
+                        fields[i, j].Next = fields[i + 1, j];
+                    }
+                }
             }
+            return true;
         }
+        */
     }
 }

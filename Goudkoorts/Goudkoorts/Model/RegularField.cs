@@ -24,6 +24,11 @@ namespace Goudkoorts.Model
             }
             else
             {
+                if(previous.Next.Next != null)
+                {
+                    Console.WriteLine("Botsing!");
+                    return false;
+                }
                 return false;
             }
         }

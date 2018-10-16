@@ -19,7 +19,7 @@ namespace Goudkoorts.Model
         {
             int number = randomGen.Next(1, 100);
 
-            if (number < 26)
+            if (number < 11)
             {
                 return true;
             }

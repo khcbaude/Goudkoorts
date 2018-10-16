@@ -8,6 +8,8 @@ namespace Goudkoorts.Model
 {
     public class SwitchField : Field
     {
+        
+        public bool Pressed { get; set; }
 
         public SwitchField(char symbol)
         {
@@ -16,7 +18,32 @@ namespace Goudkoorts.Model
 
         public override bool PutEntityOnThisField(Route route, Field previous)
         {
-            return false;
+            if (Entity == null)
+            {
+                if (ChangeSwitch())
+                {
+                    
+                }
+                Entity = previous.Entity;
+                previous.Entity = null;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ChangeSwitch()
+        {
+            if (Pressed)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
