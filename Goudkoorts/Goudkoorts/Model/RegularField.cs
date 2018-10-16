@@ -14,9 +14,18 @@ namespace Goudkoorts.Model
             Symbol = symbol;
         }
 
-        public override void PutEntityOnThisField(Route route)
+        public override bool PutEntityOnThisField(Route route, Field previous)
         {
-            throw new NotImplementedException();
+            if (Entity == null)
+            {
+                Entity = previous.Entity;
+                previous.Entity = null;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

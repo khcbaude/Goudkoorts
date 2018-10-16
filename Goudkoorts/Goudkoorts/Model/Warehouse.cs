@@ -14,7 +14,7 @@ namespace Goudkoorts.Model
             Symbol = symbol;
         }
 
-        public override void PutEntityOnThisField(Route route) { return; }
+        public override bool PutEntityOnThisField(Route route, Field previous) { return false; }
         public bool ReleaseCart(Random randomGen)
         {
             int number = randomGen.Next(1, 100);

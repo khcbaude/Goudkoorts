@@ -11,12 +11,12 @@ namespace Goudkoorts.Model
         private Random _randomGen;
         public List<Warehouse> Warehouses { get; set; }
 
-        public List<Entity> Entities { get; set; }
+        public List<Field> Entities { get; set; }
 
         public Route()
         {
             Warehouses = new List<Warehouse>();
-            Entities = new List<Entity>();
+            Entities = new List<Field>();
             _randomGen = new Random();
         }
 
@@ -27,7 +27,18 @@ namespace Goudkoorts.Model
                 if (Warehouses[i].ReleaseCart(_randomGen)) {
                     Cart cart = new Cart();
                     Warehouses[i].Next.Entity = cart;
-                    Entities.Add(cart);
+                    Entities.Add(Warehouses[i].Next);
+                }
+            }
+        }
+
+        public void MoveEntities()
+        {
+            for (int i = 0; i < Entities.Count; i++)
+            {
+                if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))
+                {
+                    Entities[i] = Entities[i].Next;
                 }
             }
         }

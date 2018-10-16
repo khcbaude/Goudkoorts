@@ -32,7 +32,7 @@ namespace Goudkoorts.Model
         {
         }
 
-        public abstract void PutEntityOnThisField(Route route);
+        public abstract bool PutEntityOnThisField(Route route, Field previous);
         
     }
 }

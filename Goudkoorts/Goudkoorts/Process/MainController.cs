@@ -38,6 +38,7 @@ namespace Goudkoorts.Process
                 Thread.Sleep(1000);
                 Time++; 
                 Console.Clear();
+                _parser.Route.MoveEntities();
                 _parser.Route.AddCart();
                 Console.WriteLine(Time);
                 _outputView.PrintField();
