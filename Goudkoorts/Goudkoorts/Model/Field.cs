@@ -24,9 +24,14 @@ namespace Goudkoorts.Model
             }
             set { _symbol = value; }
         }
-        public Field Next { get; set; }
+        public Field FirstNext { get; set; }
 
-        public Field Previous { get; set; }
+        public Field SecondNext { get; set; }
+
+        public Field FirstPrevious { get; set; }
+
+        public Field SecondPrevious { get; set; }
+
 
         public Entity Entity { get; set; }
 

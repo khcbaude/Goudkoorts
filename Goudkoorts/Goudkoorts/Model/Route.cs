@@ -26,8 +26,8 @@ namespace Goudkoorts.Model
             {
                 if (Warehouses[i].ReleaseCart(_randomGen)) {
                     Cart cart = new Cart();
-                    Warehouses[i].Next.Entity = cart;
-                    Entities.Add(Warehouses[i].Next);
+                    Warehouses[i].FirstNext.Entity = cart;
+                    Entities.Add(Warehouses[i].FirstNext);
                 }
             }
         }
@@ -36,9 +36,9 @@ namespace Goudkoorts.Model
         {
             for (int i = 0; i < Entities.Count; i++)
             {
-                if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))
+                if (Entities[i].FirstNext.PutEntityOnThisField(this, Entities[i]))
                 {
-                    Entities[i] = Entities[i].Next;
+                    Entities[i] = Entities[i].FirstNext;
                 }
             }
         }

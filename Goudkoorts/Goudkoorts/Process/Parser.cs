@@ -89,53 +89,55 @@ namespace Goudkoorts.Process
                         case '←':
                             if (j - 1 > -1)
                             {
-                                fields[i, j].Next = fields[i, j - 1];
+                                fields[i, j].FirstNext = fields[i, j - 1];
                             }
                             break;
                         case '→':
                             if (j + 1 < characters.Length)
                             {
-                                fields[i, j].Next = fields[i, j + 1];
+                                fields[i, j].FirstNext = fields[i, j + 1];
                             }
                             break;
                         case '█':
                             if (j + 1 < characters.Length)
                             {
-                                fields[i, j].Next = fields[i, j + 1];
+                                fields[i, j].FirstNext = fields[i, j + 1];
                             }
                             break;
                         case '↑':
                             if (i - 1 > -1)
                             {
-                                fields[i, j].Next = fields[i - 1, j];
+                                fields[i, j].FirstNext = fields[i - 1, j];
                             }
                             break;
                         case '↓':
                             if (i + 1 < list.Count)
                             {
-                                fields[i, j].Next = fields[i + 1, j];
+                                fields[i, j].FirstNext = fields[i + 1, j];
                             }
                             break;
                         case '◄':
                             if (j - 1 > -1)
                             {
-                                fields[i, j].Next = fields[i, j - 1];
-                                fields[i, j].Previous = fields[i, j + 1];
+                                fields[i, j].FirstNext = fields[i, j - 1];
                             }
                             break;
                         case '╠':
                             if (j + 1 < characters.Length)
                             {
-                                fields[i, j].Next = fields[i, j + 1];
-                                fields[i, j].Previous = fields[i - 1, j];
+                                fields[i, j].FirstNext = fields[i, j + 1];
+                                fields[i, j].SecondNext = fields[i, j + 1];
+                                fields[i, j].FirstPrevious = fields[i - 1, j];
+                                fields[i, j].SecondPrevious = fields[i + 1, j];
                             }
                             break;
                         case '╣':
                             if (i - 1 > -1)
                             {
-                                fields[i, j].Next = fields[i - 1, j];
-                                fields[i, j].Previous = fields[i, j - 1];
-
+                                fields[i, j].FirstNext = fields[i - 1, j];
+                                fields[i, j].FirstPrevious = fields[i, j - 1];
+                                fields[i, j].SecondPrevious = fields[i, j - 1];
+                                fields[i, j].SecondNext = fields[i + 1, j];
                             }
                             break;
                         default:
@@ -154,21 +156,5 @@ namespace Goudkoorts.Process
             }
             return print;
         }
-        /*
-        public bool ChangeSwitchNext()
-        {
-            for (int i = 0; i < list.Count; i++)
-            {
-                for (int j = 0; j < characters.Length; j++)
-                {
-                    if (characters[j].Equals('╣'))
-                    {
-                        fields[i, j].Next = fields[i + 1, j];
-                    }
-                }
-            }
-            return true;
-        }
-        */
     }
 }
