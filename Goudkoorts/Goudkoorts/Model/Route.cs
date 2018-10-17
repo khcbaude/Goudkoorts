@@ -47,7 +47,8 @@ namespace Goudkoorts.Model
 
         public void MoveEntities()
         {
-            for (int i = 0; i < Entities.Count; i++)
+            int k;
+            for (k = 0; k < Entities.Count; k++)
             {
                 if (_ship.Equals(Waterfields[Waterfields.Count-3].Entity))
                 {
@@ -57,9 +58,20 @@ namespace Goudkoorts.Model
                     } else
                     {
                         // schip moet stoppen but idk how
+                        break;
                     }
-                    Console.WriteLine("hoi");
                 }
+                if (Entities[k].Next != null)
+                {
+                    if (Entities[k].Next.PutEntityOnThisField(this, Entities[k]))
+                    {
+                        Entities[k] = Entities[k].Next;
+                    }
+                }
+            }
+            k++;
+            for(int i = k; i < Entities.Count; i++)
+            {
                 if (Entities[i].Next != null)
                 {
                     if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))

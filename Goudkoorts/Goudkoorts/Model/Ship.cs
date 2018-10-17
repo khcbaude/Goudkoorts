@@ -8,6 +8,7 @@ namespace Goudkoorts.Model
 {
     class Ship : Entity
     {
+        public int CartAmount { get; set; }
         public override char Symbol
         {
             get
