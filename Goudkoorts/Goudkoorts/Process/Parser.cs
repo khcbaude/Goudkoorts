@@ -41,10 +41,12 @@ namespace Goudkoorts.Process
                     switch (characters[j])
                     {
                         case '░':
-                            fields[i, j] = new Model.EmptyField('░');
+                            Model.WaterField waterfield = new Model.WaterField('░');
+                            fields[i, j] = waterfield;
+                            Route.Waterfields.Add(waterfield);
                             break;
                         case 'K':
-                            fields[i, j] = new Model.EmptyField('K');
+                            fields[i, j] = new Model.QuayField('K');
                             break;
                         case ' ':
                             fields[i, j] = new Model.EmptyField(' ');
@@ -85,8 +87,7 @@ namespace Goudkoorts.Process
                 for (int j = 0; j < characters.Length; j++)
                 {
                     switch (characters[j])
-                    {
-                            
+                    {  
                         case '╠':
                             Model.SwitchField switchField = new Model.SwitchField('╠');
                             switchField.FirstNext = fields[i, j + 1];
@@ -130,6 +131,12 @@ namespace Goudkoorts.Process
                                 fields[i, j].Next = fields[i, j + 1];
                             }
                             break;
+                        case '░':
+                            if (j + 1 < characters.Length)
+                            {
+                                fields[i, j].Next = fields[i, j + 1];
+                            }
+                            break;
                         case '█':
                             if (j + 1 < characters.Length)
                             {
@@ -146,6 +153,13 @@ namespace Goudkoorts.Process
                             if (i + 1 < list.Count)
                             {
                                 fields[i, j].Next = fields[i + 1, j];
+                            }
+                            break;
+                        case 'K':
+                            if(j - 1 > -1)
+                            {
+                                fields[i,j].Next = fields[i,j-1];
+                                
                             }
                             break;
                         case '◄':

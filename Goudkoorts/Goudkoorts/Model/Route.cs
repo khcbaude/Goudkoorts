@@ -13,11 +13,16 @@ namespace Goudkoorts.Model
         public List<Field> Entities { get; set; }
         public List<SwitchField> Switches { get; set; }
 
+        private Ship _ship;
+
+        public List<WaterField> Waterfields { get; set; }
+
         public Route()
         {
             Warehouses = new List<Warehouse>();
             Entities = new List<Field>();
             Switches = new List<SwitchField>();
+            Waterfields = new List<WaterField>();
             _randomGen = new Random();
         }
 
@@ -33,10 +38,28 @@ namespace Goudkoorts.Model
             }
         }
 
+        public void AddBoat()
+        {
+            _ship = new Ship();
+            Waterfields[0].Entity = _ship;
+            Entities.Add(Waterfields[0]);
+        }
+
         public void MoveEntities()
         {
             for (int i = 0; i < Entities.Count; i++)
             {
+                if (_ship.Equals(Waterfields[Waterfields.Count-3].Entity))
+                {
+                    if (_ship.IsFull)
+                    {
+                        continue;
+                    } else
+                    {
+                        // schip moet stoppen but idk how
+                    }
+                    Console.WriteLine("hoi");
+                }
                 if (Entities[i].Next != null)
                 {
                     if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))

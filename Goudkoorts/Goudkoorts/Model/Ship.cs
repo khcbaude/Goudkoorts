@@ -14,7 +14,7 @@ namespace Goudkoorts.Model
             {
                 if (IsFull)
                 {
-                    return '▬';
+                    return '0';
                 }
                 else
                 {
@@ -26,7 +26,8 @@ namespace Goudkoorts.Model
         }
         public Ship()
         {
-            Symbol = '▭';
+            IsFull = false;
+            Symbol = 'O';
         }
     }
 }

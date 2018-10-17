@@ -35,9 +35,10 @@ namespace Goudkoorts.Process
 
         private void Run()
         {
+            _parser.Route.AddBoat();
             while (true)
             {
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Time++; 
                 Console.Clear();
                 _parser.Route.MoveEntities();

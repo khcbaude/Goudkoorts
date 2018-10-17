@@ -47,12 +47,14 @@
     <Compile Include="Model\EmptyField.cs" />
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Field.cs" />
+    <Compile Include="Model\QuayField.cs" />
     <Compile Include="Model\ReangentField.cs" />
     <Compile Include="Model\RegularField.cs" />
     <Compile Include="Model\Ship.cs" />
     <Compile Include="Model\Route.cs" />
     <Compile Include="Model\SwitchField.cs" />
     <Compile Include="Model\Warehouse.cs" />
+    <Compile Include="Model\WaterField.cs" />
     <Compile Include="Presentation\InputView.cs" />
     <Compile Include="Presentation\OutputView.cs" />
     <Compile Include="Process\MainController.cs" />
