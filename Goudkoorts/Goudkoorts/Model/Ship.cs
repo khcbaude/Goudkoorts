@@ -30,5 +30,14 @@ namespace Goudkoorts.Model
             IsFull = false;
             Symbol = 'O';
         }
+
+        public override bool CheckForFull()
+        {
+            if(Counter == 8)
+            {
+                IsFull = true;
+            }
+            return IsFull;
+        }
     }
 }

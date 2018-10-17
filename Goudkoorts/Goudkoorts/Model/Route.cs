@@ -66,6 +66,10 @@ namespace Goudkoorts.Model
                     if (Entities[k].Next.PutEntityOnThisField(this, Entities[k]))
                     {
                         Entities[k] = Entities[k].Next;
+                        if (Entities[k].Entity.CheckForFull())
+                        {
+                            _ship.IsFull = true;
+                        }
                     }
                 }
             }
@@ -77,6 +81,10 @@ namespace Goudkoorts.Model
                     if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))
                     {
                         Entities[i] = Entities[i].Next;
+                        if (Entities[i].Entity.CheckForFull())
+                        {
+                            _ship.IsFull = true;
+                        }
                     }
                 }
             }

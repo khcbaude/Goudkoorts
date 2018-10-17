@@ -25,6 +25,7 @@ namespace Goudkoorts.Model
             set { _symbol = value; }
         }
 
+
         public RegularField(char symbol)
         {
             Symbol = symbol;

@@ -62,7 +62,6 @@ namespace Goudkoorts.Model
         public Field FirstPrevious { get; set; }
 
         public Field SecondPrevious { get; set; }
-
         public SwitchField(char symbol)
         {
             Symbol = symbol;

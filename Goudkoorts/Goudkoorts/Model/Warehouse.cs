@@ -11,6 +11,7 @@ namespace Goudkoorts.Model
         public override Field Next { get; set; }
 
         public override char Symbol { get; set; }
+
         public Warehouse(char symbol)
         {
             Symbol = symbol;

@@ -10,8 +10,12 @@ namespace Goudkoorts.Model
     {
         public bool IsFull { get; set; }
 
+        public int Counter { get; set; }
+
         protected char _symbol;
         public abstract char Symbol { get; set; }
+
+        public abstract bool CheckForFull();
 
     }
 }
