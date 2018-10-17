@@ -94,7 +94,7 @@ namespace Goudkoorts.Process
                             switchField.FirstPrevious = fields[i - 1, j];
                             switchField.SecondPrevious = fields[i + 1, j];
                             fields[i, j] = switchField;
-                            Route.Switches.Add(fields[i,j]);
+                            Route.Switches.Add(switchField);
                             break;
                         case '╣':
                             Model.SwitchField switchField2 = new Model.SwitchField('╣');
@@ -103,7 +103,7 @@ namespace Goudkoorts.Process
                             switchField2.FirstPrevious = fields[i, j - 1];
                             switchField2.SecondPrevious = fields[i, j - 1];
                             fields[i, j] = switchField2;
-                            Route.Switches.Add(fields[i, j]);
+                            Route.Switches.Add(switchField2);
                             break;
                         default:
                             break;

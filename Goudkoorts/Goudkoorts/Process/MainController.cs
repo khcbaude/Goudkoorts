@@ -29,6 +29,7 @@ namespace Goudkoorts.Process
             _outputView.PrintField();
             mainThread = new Thread(new ThreadStart(Run));
             mainThread.Start();
+            SwitchInput();
             Console.ReadLine();
         }
 
@@ -36,12 +37,30 @@ namespace Goudkoorts.Process
         {
             while (true)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 Time++; 
                 Console.Clear();
                 _parser.Route.MoveEntities();
                 _parser.Route.AddCart();
                 Console.WriteLine(Time);
+                _outputView.PrintField();
+            }
+        }
+
+        private void SwitchInput()
+        {
+            while (true)
+            {
+                int input = _inputView.ReturnInput();
+                Console.Clear();
+                if (_parser.Route.Switches[input - 1].FirstPressed)
+                {
+                    _parser.Route.Switches[input - 1].FirstPressed = false;
+                }
+                else
+                {
+                    _parser.Route.Switches[input - 1].FirstPressed = true;
+                }
                 _outputView.PrintField();
             }
         }
