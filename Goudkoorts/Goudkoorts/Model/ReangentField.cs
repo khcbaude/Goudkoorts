@@ -8,6 +8,7 @@ namespace Goudkoorts.Model
 {
     public class ReangentField : Field
     {
+        public override Field Next { get; set; }
 
         public ReangentField(char symbol)
         {
@@ -16,7 +17,21 @@ namespace Goudkoorts.Model
 
         public override bool PutEntityOnThisField(Route route, Field previous)
         {
-            return false;
+            if (Entity == null)
+            {
+                Entity = previous.Entity;
+                previous.Entity = null;
+                return true;
+            }
+            else
+            {
+                if (previous.Next.Next != null)
+                {
+                    Console.WriteLine("Geen botsing want dit is een reangentfield!");
+                    return false;
+                }
+                return false;
+            }
         }
     }
 }

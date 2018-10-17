@@ -24,14 +24,7 @@ namespace Goudkoorts.Model
             }
             set { _symbol = value; }
         }
-        public Field FirstNext { get; set; }
-
-        public Field SecondNext { get; set; }
-
-        public Field FirstPrevious { get; set; }
-
-        public Field SecondPrevious { get; set; }
-
+        public abstract Field Next { get; set; }
 
         public Entity Entity { get; set; }
 

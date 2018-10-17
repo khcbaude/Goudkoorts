@@ -8,7 +8,7 @@ namespace Goudkoorts.Model
 {
     class RegularField : Field
     {
-
+        public override Field Next { get; set; }
         public RegularField(char symbol)
         {
             Symbol = symbol;
@@ -24,7 +24,7 @@ namespace Goudkoorts.Model
             }
             else
             {
-                if(previous.FirstNext.FirstNext != null)
+                if(previous.Next.Next != null)
                 {
                     Console.WriteLine("Botsing!");
                     return false;

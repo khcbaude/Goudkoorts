@@ -11,7 +11,7 @@ namespace Goudkoorts.Process
     {
         public Model.Route Route { get; set; }
 
-        
+
         public List<Model.Field> BuildMaze()
         {
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
@@ -70,10 +70,43 @@ namespace Goudkoorts.Process
                             fields[i, j] = new Model.RegularField('~');
                             break;
                         case '╠':
-                            fields[i, j] = new Model.SwitchField('╠');
+                            //fields[i, j] = new Model.SwitchField('╠');
                             break;
                         case '╣':
-                            fields[i, j] = new Model.SwitchField('╣');
+                            //fields[i, j] = new Model.SwitchField('╣');
+                            break;
+                    }
+                }
+            }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                characters = list[i].ToArray();
+                for (int j = 0; j < characters.Length; j++)
+                {
+                    switch (characters[j])
+                    {
+                            
+                        case '╠':
+                            Model.SwitchField switchField = new Model.SwitchField('╠');
+                            switchField.FirstNext = fields[i, j + 1];
+                            switchField.SecondNext = fields[i, j + 1];
+                            switchField.FirstPrevious = fields[i - 1, j];
+                            switchField.SecondPrevious = fields[i + 1, j];
+                            fields[i, j] = switchField;
+
+                            break;
+                        case '╣':
+
+                            Model.SwitchField switchField2 = new Model.SwitchField('╣');
+                            switchField2.FirstNext = fields[i - 1, j];
+                            switchField2.SecondNext = fields[i + 1, j];
+                            switchField2.FirstPrevious = fields[i, j - 1];
+                            switchField2.SecondPrevious = fields[i, j - 1];
+                            fields[i, j] = switchField2;
+
+                            break;
+                        default:
                             break;
                     }
                 }
@@ -89,55 +122,37 @@ namespace Goudkoorts.Process
                         case '←':
                             if (j - 1 > -1)
                             {
-                                fields[i, j].FirstNext = fields[i, j - 1];
+                                fields[i, j].Next = fields[i, j - 1];
                             }
                             break;
                         case '→':
                             if (j + 1 < characters.Length)
                             {
-                                fields[i, j].FirstNext = fields[i, j + 1];
+                                fields[i, j].Next = fields[i, j + 1];
                             }
                             break;
                         case '█':
                             if (j + 1 < characters.Length)
                             {
-                                fields[i, j].FirstNext = fields[i, j + 1];
+                                fields[i, j].Next = fields[i, j + 1];
                             }
                             break;
                         case '↑':
                             if (i - 1 > -1)
                             {
-                                fields[i, j].FirstNext = fields[i - 1, j];
+                                fields[i, j].Next = fields[i - 1, j];
                             }
                             break;
                         case '↓':
                             if (i + 1 < list.Count)
                             {
-                                fields[i, j].FirstNext = fields[i + 1, j];
+                                fields[i, j].Next = fields[i + 1, j];
                             }
                             break;
                         case '◄':
                             if (j - 1 > -1)
                             {
-                                fields[i, j].FirstNext = fields[i, j - 1];
-                            }
-                            break;
-                        case '╠':
-                            if (j + 1 < characters.Length)
-                            {
-                                fields[i, j].FirstNext = fields[i, j + 1];
-                                fields[i, j].SecondNext = fields[i, j + 1];
-                                fields[i, j].FirstPrevious = fields[i - 1, j];
-                                fields[i, j].SecondPrevious = fields[i + 1, j];
-                            }
-                            break;
-                        case '╣':
-                            if (i - 1 > -1)
-                            {
-                                fields[i, j].FirstNext = fields[i - 1, j];
-                                fields[i, j].FirstPrevious = fields[i, j - 1];
-                                fields[i, j].SecondPrevious = fields[i, j - 1];
-                                fields[i, j].SecondNext = fields[i + 1, j];
+                                fields[i, j].Next = fields[i, j - 1];
                             }
                             break;
                         default:

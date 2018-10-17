@@ -12,6 +12,9 @@ namespace Goudkoorts.Model
         {
             Symbol = symbol;
         }
+
+        public override Field Next { get; set; }
+
         public override bool PutEntityOnThisField(Route route, Field previous)
         {
             return false;
