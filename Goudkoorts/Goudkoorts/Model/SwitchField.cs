@@ -41,16 +41,16 @@ namespace Goudkoorts.Model
 
         public override bool PutEntityOnThisField(Route route, Field previous)
         {
+            if (FirstPressed)
+            {
+                if (!previous.Equals(FirstPrevious)) { return false; }
+            }
+            else
+            {
+                if (!previous.Equals(SecondPrevious)) { return false; }
+            }
             if (Entity == null)
             {
-                if (FirstPressed)
-                {
-                    if (!previous.Equals(FirstPrevious)) { return false; }
-                }
-                else
-                {
-                    if (!previous.Equals(SecondPrevious)) { return false; }
-                }
                 Entity = previous.Entity;
                 previous.Entity = null;
                 return true;
