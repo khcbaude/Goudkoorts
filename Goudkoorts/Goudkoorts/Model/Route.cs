@@ -10,13 +10,14 @@ namespace Goudkoorts.Model
     {
         private Random _randomGen;
         public List<Warehouse> Warehouses { get; set; }
-
         public List<Field> Entities { get; set; }
+        public List<Field> Switches { get; set; }
 
         public Route()
         {
             Warehouses = new List<Warehouse>();
             Entities = new List<Field>();
+            Switches = new List<Field>();
             _randomGen = new Random();
         }
 
