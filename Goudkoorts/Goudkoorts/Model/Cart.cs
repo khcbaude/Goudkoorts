@@ -14,7 +14,7 @@ namespace Goudkoorts.Model
             {
                 if (IsFull)
                 {
-                    return '▼';
+                    return 'F';
                 }
                 else
                 {
@@ -27,7 +27,7 @@ namespace Goudkoorts.Model
         public Cart()
         {
             IsFull = true;
-            Symbol = 'V';
+            Symbol = 'E';
         }
     }
 }
