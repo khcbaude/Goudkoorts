@@ -23,6 +23,36 @@ namespace Goudkoorts.Model
             }
             set { }
         }
+
+        public override char Symbol
+        {
+            //╚ ╔ ╗ ╝
+            get
+            {
+                if (Entity != null)
+                {
+                    return Entity.Symbol;
+                }
+
+                if (FirstNext == SecondNext)
+                {
+                    if (FirstPressed)
+                    {
+                        return '╚';
+                    }
+                    else { return '╔'; }
+                }
+                else
+                {
+                    if (FirstPressed)
+                    {
+                        return '╝';
+                    }
+                    else { return '╗'; }
+                }
+            }
+            set { _symbol = value; }
+        }
         public bool FirstPressed { get; set; }
 
         public Field FirstNext { get; set; }

@@ -8,22 +8,8 @@ namespace Goudkoorts.Model
 {
     public abstract class Field
     {
-        private char _symbol;
-        public char Symbol
-        {
-            get
-            {
-                if (Entity != null)
-                {
-                    return Entity.Symbol;
-                }
-                else
-                {
-                    return _symbol;
-                }
-            }
-            set { _symbol = value; }
-        }
+        protected char _symbol;
+        public abstract char Symbol { get; set; }
         public abstract Field Next { get; set; }
 
         public Entity Entity { get; set; }

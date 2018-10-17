@@ -8,6 +8,21 @@ namespace Goudkoorts.Model
 {
     public class EmptyField : Field
     {
+        public override char Symbol
+        {
+            get
+            {
+                if (Entity != null)
+                {
+                    return Entity.Symbol;
+                }
+                else
+                {
+                    return _symbol;
+                }
+            }
+            set { _symbol = value; }
+        }
         public EmptyField(char symbol)
         {
             Symbol = symbol;

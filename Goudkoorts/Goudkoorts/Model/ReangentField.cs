@@ -8,6 +8,21 @@ namespace Goudkoorts.Model
 {
     public class ReangentField : Field
     {
+        public override char Symbol
+        {
+            get
+            {
+                if (Entity != null)
+                {
+                    return Entity.Symbol;
+                }
+                else
+                {
+                    return _symbol;
+                }
+            }
+            set { _symbol = value; }
+        }
         public override Field Next { get; set; }
 
         public ReangentField(char symbol)

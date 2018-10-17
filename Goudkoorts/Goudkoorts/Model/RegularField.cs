@@ -9,6 +9,22 @@ namespace Goudkoorts.Model
     class RegularField : Field
     {
         public override Field Next { get; set; }
+        public override char Symbol
+        {
+            get
+            {
+                if (Entity != null)
+                {
+                    return Entity.Symbol;
+                }
+                else
+                {
+                    return _symbol;
+                }
+            }
+            set { _symbol = value; }
+        }
+
         public RegularField(char symbol)
         {
             Symbol = symbol;
