@@ -48,6 +48,7 @@ namespace Goudkoorts.Model
 
         public void MoveEntities()
         {
+            //test
             int k;
             for (k = 0; k < Entities.Count; k++)
             {
