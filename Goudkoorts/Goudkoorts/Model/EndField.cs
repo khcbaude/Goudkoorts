@@ -20,12 +20,8 @@ namespace Goudkoorts.Model
         {
             if (previous.Entity.CheckForFull())
             {
-                //score++
+                route.Score += 10;
                 route.AddBoat();
-            }
-            else
-            {
-                //not score ++
             }
             fields.Remove(previous);
             previous.Entity = null;

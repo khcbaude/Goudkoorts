@@ -9,7 +9,6 @@ namespace Goudkoorts.Process
 {
     class MainController
     {
-        public int Score { get; set; }
         public int Time { get; set; }
 
         private Thread mainThread;
@@ -24,7 +23,6 @@ namespace Goudkoorts.Process
             _inputView = new InputView();
             _parser = new Parser();
             _outputView.Print = _parser.BuildMaze();
-            _outputView.PrintField();
             mainThread = new Thread(new ThreadStart(Run));
             mainThread.Start();
             SwitchInput();
@@ -43,7 +41,7 @@ namespace Goudkoorts.Process
                 _parser.Route.AddCart();
                 _parser.Route.RandomChanceBoat();
                 Console.WriteLine(Time);
-                _outputView.PrintField();
+                _outputView.PrintField(_parser.Route.Score);
             }
         }
 
@@ -61,7 +59,7 @@ namespace Goudkoorts.Process
                 {
                     _parser.Route.Switches[input - 1].FirstPressed = true;
                 }
-                _outputView.PrintField();
+                _outputView.PrintField(_parser.Route.Score);
             }
         }
     }

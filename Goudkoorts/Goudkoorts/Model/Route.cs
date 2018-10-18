@@ -17,6 +17,8 @@ namespace Goudkoorts.Model
 
         public List<WaterField> Waterfields { get; set; }
 
+        public int Score { get; set; }
+
         public Route()
         {
             Warehouses = new List<Warehouse>();

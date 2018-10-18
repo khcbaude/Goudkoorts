@@ -27,7 +27,7 @@ namespace Goudkoorts
             Console.WriteLine(" __________________________________ ");
         }
 
-        public void PrintField()
+        public void PrintField(int score)
         {
             Console.WriteLine();
             Model.Field[] characters = Print.ToArray();
@@ -42,6 +42,7 @@ namespace Goudkoorts
                     count = 0;
                 }
             }
+            Console.WriteLine("Score: " + score);
         }
     }
 }
