@@ -6,29 +6,34 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Model
 {
-    class Ship : Entity
+    public class Ship : Entity
     {
         public int CartAmount { get; set; }
         public override char Symbol
         {
             get
             {
-                if (IsFull)
+                switch (Counter)
                 {
-                    return '0';
-                }
-                else
-                {
-
-                    return _symbol;
+                    case 0: return '0';
+                    case 1: return '1';
+                    case 2: return '2';
+                    case 3: return '3';
+                    case 4: return '4';
+                    case 5: return '5';
+                    case 6: return '6';
+                    case 7: return '7';
+                    case 8: return '8';
+                    default: return ' ';
                 }
             }
-            set { _symbol = value; }
+            set {}
         }
         public Ship()
         {
             IsFull = false;
             Symbol = 'O';
+            Counter = 0;
         }
 
         public override bool CheckForFull()

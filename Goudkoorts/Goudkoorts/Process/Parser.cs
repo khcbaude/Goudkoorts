@@ -159,7 +159,12 @@ namespace Goudkoorts.Process
                             if(j - 1 > -1)
                             {
                                 fields[i,j].Next = fields[i,j-1];
-                                
+                                //Model.WaterField waterField= new Model.WaterField('░');
+                                //waterField.Quay = true;
+                                //waterField.Next = fields[i - 1, j].Next;
+                                //fields[i - 1, j] = waterField;
+                                //fields[i - 1, j - 1].Next = fields[i - 1, j];
+
                             }
                             break;
                         case '◄':

@@ -13,7 +13,7 @@ namespace Goudkoorts.Model
         public List<Field> Entities { get; set; }
         public List<SwitchField> Switches { get; set; }
 
-        private Ship _ship;
+        private Ship _ship { get; set; }
 
         public List<WaterField> Waterfields { get; set; }
 

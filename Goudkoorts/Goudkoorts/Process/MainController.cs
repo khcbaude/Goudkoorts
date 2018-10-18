@@ -9,9 +9,7 @@ namespace Goudkoorts.Process
 {
     class MainController
     {
-
         public int Score { get; set; }
-
         public int Time { get; set; }
 
         private Thread mainThread;

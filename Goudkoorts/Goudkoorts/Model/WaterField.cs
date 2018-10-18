@@ -11,6 +11,7 @@ namespace Goudkoorts.Model
         public WaterField(char symbol)
         {
             Symbol = symbol;
+            Quay = false;
         }
 
         public override char Symbol
@@ -28,9 +29,9 @@ namespace Goudkoorts.Model
             }
             set { _symbol = value; }
         }
-        public override Field Next { get; set; }
 
-        public Field Previous { get; set; }
+        public bool Quay { get; set; }
+        public override Field Next { get; set; }
 
         public override bool PutEntityOnThisField(Route route, Field previous)
         {
