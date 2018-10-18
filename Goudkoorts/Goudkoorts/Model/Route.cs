@@ -63,29 +63,31 @@ namespace Goudkoorts.Model
             int k;
             for (k = 0; k < Entities.Count; k++)
             {
-                if (Entities[k].Entity.Equals(Waterfields[Waterfields.Count - 3].Entity))
-                {
-                    if (Entities[k].Entity.CheckForFull())
+                if (Waterfields[Waterfields.Count-3].Entity != null) {
+                    if (Entities[k].Entity.Equals(Waterfields[Waterfields.Count - 3].Entity))
                     {
-                        if (Entities[k].Next != null)
+                        if (Entities[k].Entity.CheckForFull())
                         {
-                            if (Entities[k].Next.PutEntityOnThisField(this, Entities[k], Entities))
+                            if (Entities[k].Next != null)
                             {
-                                Entities[k] = Entities[k].Next;
-                                ShipOnQuay = null;
-                                //_ship.CheckForFull();
-                                //if (_ship.IsFull)
-                                //{
-                                //    continue;
-                                //}
+                                if (Entities[k].Next.PutEntityOnThisField(this, Entities[k], Entities))
+                                {
+                                    Entities[k] = Entities[k].Next;
+                                    ShipOnQuay = null;
+                                    //_ship.CheckForFull();
+                                    //if (_ship.IsFull)
+                                    //{
+                                    //    continue;
+                                    //}
+                                }
                             }
+                            break;
                         }
-                        break;
-                    }
-                    else
-                    {
-                        // schip moet stoppen but idk how
-                        break;
+                        else
+                        {
+                            // schip moet stoppen but idk how
+                            break;
+                        }
                     }
                 }
                 if (Entities[k].Next != null)
