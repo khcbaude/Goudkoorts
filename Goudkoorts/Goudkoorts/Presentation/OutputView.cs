@@ -27,6 +27,14 @@ namespace Goudkoorts
             Console.WriteLine(" __________________________________ ");
         }
 
+        internal void WriteEndGameMessage(int score)
+        {
+            Console.Clear();
+            Console.WriteLine("Game Over");
+            Console.WriteLine("Final Score: " + score);
+            Console.WriteLine("Press Enter to close game");
+        }
+
         public void PrintField(int score)
         {
             Console.WriteLine();

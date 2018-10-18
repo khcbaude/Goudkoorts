@@ -19,6 +19,8 @@ namespace Goudkoorts.Model
 
         public int Score { get; set; }
 
+        public bool Game { get; set; }
+
         public Route()
         {
             Warehouses = new List<Warehouse>();
@@ -26,6 +28,7 @@ namespace Goudkoorts.Model
             Switches = new List<SwitchField>();
             Waterfields = new List<WaterField>();
             _randomGen = new Random();
+            Game = true;
         }
 
         public void AddCart()

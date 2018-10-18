@@ -49,6 +49,7 @@ namespace Goudkoorts.Model
                 if (previous.Next.Next != null)
                 {
                     Console.WriteLine("Botsing!");
+                    route.Game = false;
                     return false;
                 }
                 return false;

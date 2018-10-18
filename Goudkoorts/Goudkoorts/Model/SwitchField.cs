@@ -86,6 +86,8 @@ namespace Goudkoorts.Model
             }
             else
             {
+                route.Game = false;
+                Console.WriteLine("Botsing");
                 return false;
             }
         }

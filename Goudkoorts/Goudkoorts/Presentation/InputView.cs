@@ -9,10 +9,10 @@ namespace Goudkoorts
     class InputView
     {
 
-        public int ReturnInput()
+        public int ReturnInput(Model.Route route)
         {
-            int intTemp;
-            while (true)
+            int intTemp = 0;
+            while (route.Game)
             {
                 string s = Console.ReadLine();
                 if (int.TryParse(s, out intTemp))
@@ -21,14 +21,14 @@ namespace Goudkoorts
                     intTemp = Convert.ToInt32(s);
                     if (intTemp > 0 && intTemp < 6)
                     {
-                        break;
+                        return intTemp;
                     }
 
                 }
 
                 Console.WriteLine("Ongeldige input");
             }
-            return intTemp;
+            return 0;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Goudkoorts.Process
         private OutputView _outputView;
         private InputView _inputView;
         private Parser _parser;
+        private Model.Route _route;
         public MainController()
         {
             _outputView = new OutputView();
@@ -23,43 +24,47 @@ namespace Goudkoorts.Process
             _inputView = new InputView();
             _parser = new Parser();
             _outputView.Print = _parser.BuildMaze();
+            _route = _parser.Route;
             mainThread = new Thread(new ThreadStart(Run));
             mainThread.Start();
             SwitchInput();
+            mainThread.Interrupt();
+            _outputView.WriteEndGameMessage(_route.Score);
             Console.ReadLine();
         }
 
         private void Run()
         {
-            _parser.Route.AddBoat();
-            while (true)
+            _route.AddBoat();
+            while (_route.Game)
             {
                 Thread.Sleep(1000);
                 Time++; 
                 Console.Clear();
-                _parser.Route.MoveEntities();
-                _parser.Route.AddCart();
-                _parser.Route.RandomChanceBoat();
+                _route.MoveEntities();
+                _route.AddCart();
+                _route.RandomChanceBoat();
                 Console.WriteLine(Time);
-                _outputView.PrintField(_parser.Route.Score);
+                _outputView.PrintField(_route.Score);
             }
         }
 
         private void SwitchInput()
         {
-            while (true)
+            while (_route.Game)
             {
-                int input = _inputView.ReturnInput();
+                int input = _inputView.ReturnInput(_route);
+                if (input == 0) { break; }
                 Console.Clear();
-                if (_parser.Route.Switches[input - 1].FirstPressed)
+                if (_route.Switches[input - 1].FirstPressed)
                 {
-                    _parser.Route.Switches[input - 1].FirstPressed = false;
+                    _route.Switches[input - 1].FirstPressed = false;
                 }
                 else
                 {
-                    _parser.Route.Switches[input - 1].FirstPressed = true;
+                    _route.Switches[input - 1].FirstPressed = true;
                 }
-                _outputView.PrintField(_parser.Route.Score);
+                _outputView.PrintField(_route.Score);
             }
         }
     }
