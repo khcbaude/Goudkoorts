@@ -13,7 +13,7 @@ namespace Goudkoorts.Model
         public List<Field> Entities { get; set; }
         public List<SwitchField> Switches { get; set; }
 
-        private Ship _ship { get; set; }
+        public Ship _ship { get; set; }
 
         public List<WaterField> Waterfields { get; set; }
 
@@ -28,9 +28,10 @@ namespace Goudkoorts.Model
 
         public void AddCart()
         {
-            for(int i = 0; i < Warehouses.Count; i++)
+            for (int i = 0; i < Warehouses.Count; i++)
             {
-                if (Warehouses[i].ReleaseCart(_randomGen)) {
+                if (Warehouses[i].ReleaseCart(_randomGen))
+                {
                     Cart cart = new Cart();
                     Warehouses[i].Next.Entity = cart;
                     Entities.Add(Warehouses[i].Next);
@@ -50,12 +51,13 @@ namespace Goudkoorts.Model
             int k;
             for (k = 0; k < Entities.Count; k++)
             {
-                if (_ship.Equals(Waterfields[Waterfields.Count-3].Entity))
+                if (_ship.Equals(Waterfields[Waterfields.Count - 3].Entity))
                 {
                     if (_ship.IsFull)
                     {
                         continue;
-                    } else
+                    }
+                    else
                     {
                         // schip moet stoppen but idk how
                         break;
@@ -66,24 +68,26 @@ namespace Goudkoorts.Model
                     if (Entities[k].Next.PutEntityOnThisField(this, Entities[k]))
                     {
                         Entities[k] = Entities[k].Next;
-                        if (Entities[k].Entity.CheckForFull())
+                        _ship.CheckForFull();
+                        if (_ship.IsFull)
                         {
-                            _ship.IsFull = true;
+                            continue;
                         }
                     }
                 }
             }
             k++;
-            for(int i = k; i < Entities.Count; i++)
+            for (int i = k; i < Entities.Count; i++)
             {
                 if (Entities[i].Next != null)
                 {
                     if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))
                     {
                         Entities[i] = Entities[i].Next;
-                        if (Entities[i].Entity.CheckForFull())
+                        _ship.CheckForFull();
+                        if (_ship.IsFull)
                         {
-                            _ship.IsFull = true;
+                            continue;
                         }
                     }
                 }

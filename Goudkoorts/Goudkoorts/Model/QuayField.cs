@@ -34,7 +34,7 @@ namespace Goudkoorts.Model
                 Entity = previous.Entity;
                 previous.Entity = null;
                 Entity.IsFull = false;
-                Entity.Counter++;
+                route._ship.Counter++;
                 return true;
             }
             else

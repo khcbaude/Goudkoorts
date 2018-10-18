@@ -38,7 +38,7 @@ namespace Goudkoorts.Model
 
         public override bool CheckForFull()
         {
-            if(Counter == 8)
+            if(Counter == 1)
             {
                 IsFull = true;
             }
