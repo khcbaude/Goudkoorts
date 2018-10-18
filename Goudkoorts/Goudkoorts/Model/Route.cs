@@ -114,6 +114,10 @@ namespace Goudkoorts.Model
                     if (Entities[i].Next.PutEntityOnThisField(this, Entities[i], Entities))
                     {
                         Entities[i] = Entities[i].Next;
+                        if (Entities[k].Equals(Waterfields[Waterfields.Count - 3]))
+                        {
+                            ShipOnQuay = Entities[k].Entity;
+                        }
                         //_ship.CheckForFull();
                         //if (_ship.IsFull)
                         //{
