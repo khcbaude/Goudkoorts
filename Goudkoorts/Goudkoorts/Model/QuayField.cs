@@ -31,11 +31,18 @@ namespace Goudkoorts.Model
         {
             if (Entity == null)
             {
-                Entity = previous.Entity;
-                previous.Entity = null;
-                Entity.IsFull = false;
-                route._ship.Counter++;
-                return true;
+                if (route.ShipOnQuay != null)
+                {
+                    if (route.ShipOnQuay.Counter != 8)
+                    {
+                        Entity = previous.Entity;
+                        previous.Entity = null;
+                        Entity.IsFull = false;
+                        route.ShipOnQuay.Counter++;
+                        return true;
+                    }
+                }
+                return false;
             }
             else
             {

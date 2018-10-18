@@ -13,7 +13,7 @@ namespace Goudkoorts.Model
         public List<Field> Entities { get; set; }
         public List<SwitchField> Switches { get; set; }
 
-        public Ship _ship { get; set; }
+        public Entity ShipOnQuay { get; set; }
 
         public List<WaterField> Waterfields { get; set; }
 
@@ -41,9 +41,20 @@ namespace Goudkoorts.Model
 
         public void AddBoat()
         {
-            _ship = new Ship();
-            Waterfields[0].Entity = _ship;
+            Ship ship = new Ship();
+            Waterfields[0].Entity = ship;
             Entities.Add(Waterfields[0]);
+        }
+
+        public void RandomChanceBoat()
+        {
+            int number = _randomGen.Next(1,100);
+            if (number > 0&& number < 2 && Waterfields[0].Entity == null)
+            {
+                Ship ship = new Ship();
+                Waterfields[0].Entity = ship;
+                Entities.Add(Waterfields[0]);
+            }
         }
 
         public void MoveEntities()
@@ -52,15 +63,16 @@ namespace Goudkoorts.Model
             int k;
             for (k = 0; k < Entities.Count; k++)
             {
-                if (_ship.Equals(Waterfields[Waterfields.Count - 3].Entity))
+                if (Entities[k].Entity.Equals(Waterfields[Waterfields.Count - 3].Entity))
                 {
-                    if (_ship.CheckForFull())
+                    if (Entities[k].Entity.CheckForFull())
                     {
                         if (Entities[k].Next != null)
                         {
                             if (Entities[k].Next.PutEntityOnThisField(this, Entities[k], Entities))
                             {
                                 Entities[k] = Entities[k].Next;
+                                ShipOnQuay = null;
                                 //_ship.CheckForFull();
                                 //if (_ship.IsFull)
                                 //{
@@ -81,6 +93,10 @@ namespace Goudkoorts.Model
                     if (Entities[k].Next.PutEntityOnThisField(this, Entities[k], Entities))
                     {
                         Entities[k] = Entities[k].Next;
+                        if (Entities[k].Equals(Waterfields[Waterfields.Count - 3]))
+                        {
+                            ShipOnQuay = Entities[k].Entity;
+                        }
                         //_ship.CheckForFull();
                         //if (_ship.IsFull)
                         //{
@@ -89,6 +105,7 @@ namespace Goudkoorts.Model
                     }
                 }
             }
+            
             k++;
             for (int i = k; i < Entities.Count; i++)
             {

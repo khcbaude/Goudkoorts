@@ -41,6 +41,7 @@ namespace Goudkoorts.Process
                 Console.Clear();
                 _parser.Route.MoveEntities();
                 _parser.Route.AddCart();
+                _parser.Route.RandomChanceBoat();
                 Console.WriteLine(Time);
                 _outputView.PrintField();
             }

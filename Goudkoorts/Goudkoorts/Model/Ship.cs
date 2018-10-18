@@ -8,7 +8,6 @@ namespace Goudkoorts.Model
 {
     public class Ship : Entity
     {
-        public int CartAmount { get; set; }
         public override char Symbol
         {
             get
@@ -38,7 +37,7 @@ namespace Goudkoorts.Model
 
         public override bool CheckForFull()
         {
-            if (Counter >= 1)
+            if (Counter == 8)
             {
                 return true;
             }
