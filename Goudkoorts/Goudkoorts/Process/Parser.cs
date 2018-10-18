@@ -77,6 +77,9 @@ namespace Goudkoorts.Process
                         case '╣':
                             //fields[i, j] = new Model.SwitchField('╣');
                             break;
+                        case 'x':
+                            fields[i, j] = new Model.EndField(' ');
+                            break;
                     }
                 }
             }

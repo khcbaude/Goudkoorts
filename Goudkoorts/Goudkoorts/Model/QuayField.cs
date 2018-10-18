@@ -27,7 +27,7 @@ namespace Goudkoorts.Model
         }
         public override Field Next { get; set; }
 
-        public override bool PutEntityOnThisField(Route route, Field previous)
+        public override bool PutEntityOnThisField(Route route, Field previous, List<Field> fields)
         {
             if (Entity == null)
             {

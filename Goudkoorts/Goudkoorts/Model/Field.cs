@@ -18,7 +18,7 @@ namespace Goudkoorts.Model
         {
         }
 
-        public abstract bool PutEntityOnThisField(Route route, Field previous);
+        public abstract bool PutEntityOnThisField(Route route, Field previous, List<Field> fields);
         
     }
 }

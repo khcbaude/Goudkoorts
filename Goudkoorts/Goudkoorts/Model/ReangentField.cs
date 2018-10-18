@@ -30,7 +30,7 @@ namespace Goudkoorts.Model
             Symbol = symbol;
         }
 
-        public override bool PutEntityOnThisField(Route route, Field previous)
+        public override bool PutEntityOnThisField(Route route, Field previous, List<Field> fields)
         {
             if (Entity == null)
             {

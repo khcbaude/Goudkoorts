@@ -32,13 +32,7 @@ namespace Goudkoorts.Model
 
         public override bool CheckForFull()
         {
-            if(Counter == 1)
-            {
-                return true;
-            } else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

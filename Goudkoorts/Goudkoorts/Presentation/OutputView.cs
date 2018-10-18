@@ -36,7 +36,7 @@ namespace Goudkoorts
             {
                 Console.Write(characters[i].Symbol);
                 count++;
-                if (count == 14)
+                if (count == 16)
                 {
                     Console.WriteLine();
                     count = 0;

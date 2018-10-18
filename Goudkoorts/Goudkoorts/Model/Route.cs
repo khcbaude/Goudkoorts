@@ -58,7 +58,7 @@ namespace Goudkoorts.Model
                     {
                         if (Entities[k].Next != null)
                         {
-                            if (Entities[k].Next.PutEntityOnThisField(this, Entities[k]))
+                            if (Entities[k].Next.PutEntityOnThisField(this, Entities[k], Entities))
                             {
                                 Entities[k] = Entities[k].Next;
                                 //_ship.CheckForFull();
@@ -78,7 +78,7 @@ namespace Goudkoorts.Model
                 }
                 if (Entities[k].Next != null)
                 {
-                    if (Entities[k].Next.PutEntityOnThisField(this, Entities[k]))
+                    if (Entities[k].Next.PutEntityOnThisField(this, Entities[k], Entities))
                     {
                         Entities[k] = Entities[k].Next;
                         //_ship.CheckForFull();
@@ -94,7 +94,7 @@ namespace Goudkoorts.Model
             {
                 if (Entities[i].Next != null)
                 {
-                    if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))
+                    if (Entities[i].Next.PutEntityOnThisField(this, Entities[i], Entities))
                     {
                         Entities[i] = Entities[i].Next;
                         //_ship.CheckForFull();
