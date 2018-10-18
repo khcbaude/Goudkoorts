@@ -59,9 +59,7 @@ namespace Goudkoorts.Model
 
         public void MoveEntities()
         {
-            //test
-            int k;
-            for (k = 0; k < Entities.Count; k++)
+            for (int k = 0; k < Entities.Count; k++)
             {
                 if (Waterfields[Waterfields.Count-3].Entity != null) {
                     if (Entities[k].Entity.Equals(Waterfields[Waterfields.Count - 3].Entity))
@@ -74,20 +72,11 @@ namespace Goudkoorts.Model
                                 {
                                     Entities[k] = Entities[k].Next;
                                     ShipOnQuay = null;
-                                    //_ship.CheckForFull();
-                                    //if (_ship.IsFull)
-                                    //{
-                                    //    continue;
-                                    //}
+                                    continue;
                                 }
                             }
-                            break;
                         }
-                        else
-                        {
-                            // schip moet stoppen but idk how
-                            break;
-                        }
+                        continue;
                     }
                 }
                 if (Entities[k].Next != null)
@@ -99,32 +88,6 @@ namespace Goudkoorts.Model
                         {
                             ShipOnQuay = Entities[k].Entity;
                         }
-                        //_ship.CheckForFull();
-                        //if (_ship.IsFull)
-                        //{
-                        //    continue;
-                        //}
-                    }
-                }
-            }
-            
-            k++;
-            for (int i = k; i < Entities.Count; i++)
-            {
-                if (Entities[i].Next != null)
-                {
-                    if (Entities[i].Next.PutEntityOnThisField(this, Entities[i], Entities))
-                    {
-                        Entities[i] = Entities[i].Next;
-                        if (Entities[k].Equals(Waterfields[Waterfields.Count - 3]))
-                        {
-                            ShipOnQuay = Entities[k].Entity;
-                        }
-                        //_ship.CheckForFull();
-                        //if (_ship.IsFull)
-                        //{
-                        //    continue;
-                        //}
                     }
                 }
             }
