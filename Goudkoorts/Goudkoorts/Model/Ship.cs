@@ -27,7 +27,7 @@ namespace Goudkoorts.Model
                     default: return ' ';
                 }
             }
-            set {}
+            set { }
         }
         public Ship()
         {
@@ -38,11 +38,15 @@ namespace Goudkoorts.Model
 
         public override bool CheckForFull()
         {
-            if(Counter == 1)
+            if (Counter >= 1)
             {
-                IsFull = true;
+                return true;
             }
-            return IsFull;
+
+            else
+            {
+                return false;
+            }
         }
     }
 }

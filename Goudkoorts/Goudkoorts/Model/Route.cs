@@ -53,9 +53,21 @@ namespace Goudkoorts.Model
             {
                 if (_ship.Equals(Waterfields[Waterfields.Count - 3].Entity))
                 {
-                    if (_ship.IsFull)
+                    if (_ship.CheckForFull())
                     {
-                        continue;
+                        if (Entities[k].Next != null)
+                        {
+                            if (Entities[k].Next.PutEntityOnThisField(this, Entities[k]))
+                            {
+                                Entities[k] = Entities[k].Next;
+                                //_ship.CheckForFull();
+                                //if (_ship.IsFull)
+                                //{
+                                //    continue;
+                                //}
+                            }
+                        }
+                        break;
                     }
                     else
                     {
@@ -68,11 +80,11 @@ namespace Goudkoorts.Model
                     if (Entities[k].Next.PutEntityOnThisField(this, Entities[k]))
                     {
                         Entities[k] = Entities[k].Next;
-                        _ship.CheckForFull();
-                        if (_ship.IsFull)
-                        {
-                            continue;
-                        }
+                        //_ship.CheckForFull();
+                        //if (_ship.IsFull)
+                        //{
+                        //    continue;
+                        //}
                     }
                 }
             }
@@ -84,11 +96,11 @@ namespace Goudkoorts.Model
                     if (Entities[i].Next.PutEntityOnThisField(this, Entities[i]))
                     {
                         Entities[i] = Entities[i].Next;
-                        _ship.CheckForFull();
-                        if (_ship.IsFull)
-                        {
-                            continue;
-                        }
+                        //_ship.CheckForFull();
+                        //if (_ship.IsFull)
+                        //{
+                        //    continue;
+                        //}
                     }
                 }
             }
